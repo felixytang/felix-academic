@@ -1,43 +1,43 @@
 /* ==========================================================================
-   CONTRAST THEME - LIGHT VERSION (Elegant Redesign)
-   Navy-teal accent with refined typography
+   DEEP CURRENT THEME - LIGHT
+   Warm gallery-feel with deep ocean accents
    ========================================================================== */
 
-/* Color palette - Navy-teal accent */
-$primary-color              : #1a1a1a;
-$dark-primary-color         : #000000;
-$darker-primary-color       : #000000;
-$light-primary-color        : #404040;
-$lighter-primary-color      : #f5f5f5;
-$background                 : #ffffff;
-$background-light           : #fafafa;
-$background-lighter         : #ffffff;
-$text                       : #1a1a1a;
-$text-muted                 : #666666;
-$link                       : #1B4965;
-$link-dark                  : #153A52;
-$link-light                 : #2D6A8E;
-$footer                     : #fafafa;
-$border                     : #e5e5e5;
-$border-dark                : #cccccc;
-$selection-bg               : #1B4965;
+/* Color palette */
+$primary-color              : #1a1a2e;
+$dark-primary-color         : #0B1D3A;
+$darker-primary-color       : #060D1A;
+$light-primary-color        : #3a3a5c;
+$lighter-primary-color      : #F4EDE4;
+$background                 : #FAF8F5;
+$background-light           : #F0ECE6;
+$background-lighter         : #FAF8F5;
+$text                       : #2C2C2C;
+$text-muted                 : #7A7A7A;
+$link                       : #0E7C7B;
+$link-dark                  : #0A5E5D;
+$link-light                 : #12A09F;
+$footer                     : #F0ECE6;
+$border                     : #DDD5CA;
+$border-dark                : #C5BBB0;
+$selection-bg               : #0E7C7B;
 $selection-text             : #ffffff;
 
-/* Notice colors - Subtle greys */
-$danger-color               : #666666;
-$info-color                 : #1a1a1a;
-$notice-color               : #1a1a1a;
-$success-color              : #404040;
-$warning-color              : #666666;
+/* Notice colors */
+$danger-color               : #7A7A7A;
+$info-color                 : #2C2C2C;
+$notice-color               : #2C2C2C;
+$success-color              : #3a3a5c;
+$warning-color              : #7A7A7A;
 
 /* Refined settings */
-$border-radius              : 3px;
+$border-radius              : 4px;
 $box-shadow                 : none;
-$global-transition          : all 0.25s ease-out;
-$masthead-height            : 60px;
+$global-transition          : all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+$masthead-height            : 64px;
 $navicon-width              : 24px;
 $navicon-height             : 2px;
-$sidebar-link-max-width     : 250px;
+$sidebar-link-max-width     : 260px;
 $sidebar-screen-min-width   : 1024px;
 
 /* Light theme CSS variables */
@@ -54,7 +54,7 @@ $sidebar-screen-min-width   : 1024px;
   --global-link-color-hover           : #{$link-dark};
   --global-link-color-visited         : #{$link-light};
   --global-masthead-link-color        : #{$text};
-  --global-masthead-link-color-hover  : #{$text-muted};
+  --global-masthead-link-color-hover  : #{$link};
   --global-text-color                 : #{$text};
   --global-text-color-light           : #{$text-muted};
   --global-thead-color                : #{$border};
@@ -62,6 +62,13 @@ $sidebar-screen-min-width   : 1024px;
   --global-selection-bg-color         : #{$selection-bg};
   --global-selection-text-color       : #{$selection-text};
   --global-accent-color               : #{$link};
+  --global-hero-bg                    : #{$primary-color};
+  --global-hero-text                  : #FAF8F5;
+  --global-card-bg                    : #FFFFFF;
+  --global-card-shadow                : 0 2px 20px rgba(11, 29, 58, 0.06);
+  --global-card-shadow-hover          : 0 8px 40px rgba(11, 29, 58, 0.12);
+  --global-gradient-start             : #{$primary-color};
+  --global-gradient-end               : #0E7C7B;
 }
 
 /* Text selection */

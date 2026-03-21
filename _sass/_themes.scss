@@ -1,20 +1,18 @@
 /* ==========================================================================
-   SHARED THEME SETTINGS
+   SHARED THEME SETTINGS - DEEP CURRENT
    ========================================================================== */
 
 /* ==========================================================================
    TYPOGRAPHY
    ========================================================================== */
 
-/* Used to set the size for <em> */
 $doc-font-size              : 10;
 
-/* Paragraph indention */
-$paragraph-indent           : false; // true, false (default)
+$paragraph-indent           : false;
 $indent-var                 : 1.3em;
 
-/* System typefaces - Refined for elegance */
-$serif                      : "Source Serif 4", "Georgia", "Times New Roman", Times, serif;
+/* System typefaces - Refined for artistic elegance */
+$serif                      : "Playfair Display", "Georgia", "Times New Roman", Times, serif;
 $sans-serif                 : "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
 $monospace                  : "SF Mono", "Monaco", "Inconsolata", "Fira Mono", monospace;
 
@@ -29,11 +27,11 @@ $bodoni                     : "Bodoni MT", serif;
 $calisto                    : "Calisto MT", serif;
 $garamond                   : Garamond, serif;
 
-/* Type scale - Refined for smaller, elegant sizing */
-$type-size-1                : 1.75em;   // ~24.5px
-$type-size-2                : 1.5em;    // ~21px
-$type-size-3                : 1.25em;   // ~17.5px
-$type-size-4                : 1.1em;    // ~15.4px
+/* Type scale - Dramatic headings, refined body */
+$type-size-1                : 2.5em;    // ~35px - hero headings
+$type-size-2                : 1.75em;   // ~24.5px
+$type-size-3                : 1.375em;  // ~19.25px
+$type-size-4                : 1.125em;  // ~15.75px
 $type-size-5                : 1em;      // ~14px
 $type-size-6                : 0.85em;   // ~12px
 $type-size-7                : 0.75em;   // ~10.5px
@@ -41,7 +39,7 @@ $type-size-8                : 0.65em;   // ~9px
 
 $global-font-family         : $sans-serif;
 $header-font-family         : $serif;
-$caption-font-family        : $serif;
+$caption-font-family        : $sans-serif;
 
 /* ==========================================================================
    Breakpoints
@@ -53,7 +51,7 @@ $small                      : 600px !default;
 $medium                     : 768px !default;
 $medium-wide                : 900px !default;
 $large                      : 1024px !default;
-$x-large                    : 1400px !default;
+$x-large                    : 1280px !default;
 
 /* ==========================================================================
    Grid
@@ -101,4 +99,3 @@ $vimeo-color                : #1ab7ea;
 $vine-color                 : #00bf8f;
 $youtube-color              : #bb0000;
 $xing-color                 : #006567;
-   

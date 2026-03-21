@@ -1,39 +1,39 @@
 /* ==========================================================================
-   CONTRAST THEME - DARK VERSION (Elegant Redesign)
-   Lighter teal accent with refined typography
+   DEEP CURRENT THEME - DARK (Bioluminescent)
+   Deep navy with luminous teal accents
    ========================================================================== */
 
-/* Color palette - Teal accent for dark mode */
-$primary-color              : #e5e5e5;
-$background                 : #0a0a0a;
-$background-light           : #141414;
-$background-lighter         : #1f1f1f;
-$text                       : #e5e5e5;
-$text-muted                 : #999999;
-$link                       : #5BA3C9;
-$link-dark                  : #7BBFDF;
-$link-light                 : #4A8FB5;
-$footer                     : #0a0a0a;
-$border                     : #333333;
-$border-light               : #444444;
-$selection-bg               : #5BA3C9;
-$selection-text             : #0a0a0a;
+/* Color palette */
+$primary-color              : #E8E4DF;
+$background                 : #0A0F1A;
+$background-light           : #111827;
+$background-lighter         : #1A2332;
+$text                       : #E8E4DF;
+$text-muted                 : #8B9DB7;
+$link                       : #2DD4BF;
+$link-dark                  : #5EEAD4;
+$link-light                 : #14B8A6;
+$footer                     : #0A0F1A;
+$border                     : #1E293B;
+$border-light               : #334155;
+$selection-bg               : #2DD4BF;
+$selection-text             : #0A0F1A;
 
-/* Notice colors - Subtle greys */
-$danger-color               : #999999;
-$info-color                 : #e5e5e5;
-$notice-color               : #e5e5e5;
-$success-color              : #cccccc;
-$warning-color              : #999999;
+/* Notice colors */
+$danger-color               : #8B9DB7;
+$info-color                 : #E8E4DF;
+$notice-color               : #E8E4DF;
+$success-color              : #B0C4D4;
+$warning-color              : #8B9DB7;
 
 /* Refined settings */
-$border-radius              : 3px;
+$border-radius              : 4px;
 $box-shadow                 : none;
-$global-transition          : all 0.25s ease-out;
-$masthead-height            : 60px;
+$global-transition          : all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+$masthead-height            : 64px;
 $navicon-width              : 24px;
 $navicon-height             : 2px;
-$sidebar-link-max-width     : 250px;
+$sidebar-link-max-width     : 260px;
 $sidebar-screen-min-width   : 1024px;
 
 /* Dark theme CSS variables */
@@ -50,7 +50,7 @@ html[data-theme="dark"] {
   --global-link-color-hover           : #{$link-dark};
   --global-link-color-visited         : #{$link-light};
   --global-masthead-link-color        : #{$text};
-  --global-masthead-link-color-hover  : #{$text-muted};
+  --global-masthead-link-color-hover  : #{$link};
   --global-text-color                 : #{$text};
   --global-text-color-light           : #{$text-muted};
   --global-thead-color                : #{$background-lighter};
@@ -58,6 +58,13 @@ html[data-theme="dark"] {
   --global-selection-bg-color         : #{$selection-bg};
   --global-selection-text-color       : #{$selection-text};
   --global-accent-color               : #{$link};
+  --global-hero-bg                    : #060D1A;
+  --global-hero-text                  : #E8E4DF;
+  --global-card-bg                    : #{$background-light};
+  --global-card-shadow                : 0 2px 20px rgba(0, 0, 0, 0.3);
+  --global-card-shadow-hover          : 0 8px 40px rgba(0, 0, 0, 0.5);
+  --global-gradient-start             : #060D1A;
+  --global-gradient-end               : #134E4A;
 }
 
 /* Text selection for dark theme */

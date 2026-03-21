@@ -43,15 +43,14 @@
 ;
 
 /* ==========================================================================
-   ELEGANT ACADEMIC STYLES
-   Sophisticated refinements with navy-teal accent
+   DEEP CURRENT - ARTISTIC ACADEMIC THEME
    ========================================================================== */
 
-/* Import fonts: Inter (body) + Source Serif 4 (headings) */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&display=swap');
+/* Import fonts: Playfair Display (headings) + Inter (body) */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap');
 
 /* ==========================================================================
-   BODY REFINEMENTS
+   BODY
    ========================================================================== */
 
 body {
@@ -59,96 +58,95 @@ body {
   letter-spacing: -0.01em;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  line-height: 1.7;
 }
 
 /* ==========================================================================
-   TYPOGRAPHY — Headings
+   TYPOGRAPHY - Headings
    ========================================================================== */
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Source Serif 4", Georgia, serif;
+  font-family: "Playfair Display", Georgia, serif;
   font-weight: 600;
-  letter-spacing: -0.015em;
+  letter-spacing: -0.02em;
+  color: var(--global-text-color);
 }
 
 h1 {
-  font-size: 1.75rem;
+  font-size: 2rem;
   margin-bottom: 1rem;
 }
 
 h2 {
-  font-size: 1.3rem;
-  margin-top: 2rem;
+  font-size: 1.45rem;
+  margin-top: 2.5rem;
   margin-bottom: 0.75rem;
-  padding-bottom: 0.4rem;
+  padding-bottom: 0.5rem;
   border-bottom: 1px solid var(--global-border-color);
 }
 
 h3 {
-  font-size: 1.1rem;
-  margin-top: 1.5rem;
+  font-size: 1.15rem;
+  margin-top: 1.75rem;
 }
 
 /* ==========================================================================
-   TYPOGRAPHY — Body text
+   TYPOGRAPHY - Body text
    ========================================================================== */
 
 p {
-  line-height: 1.65;
-  margin-bottom: 1em;
+  line-height: 1.75;
+  margin-bottom: 1.1em;
 }
 
 .page__content p {
   font-size: 1rem;
-  max-width: 70ch;
+  max-width: 72ch;
 }
 
-/* Lead paragraph — first paragraph on homepage */
 .page__content > p:first-of-type {
-  font-size: 1.05rem;
-  line-height: 1.7;
+  font-size: 1.08rem;
+  line-height: 1.8;
 }
 
-/* Tighter list spacing */
 ul, ol {
   li {
-    margin-bottom: 0.25em;
-    line-height: 1.5;
+    margin-bottom: 0.3em;
+    line-height: 1.6;
   }
 }
 
 /* ==========================================================================
-   LINKS — Animated underline
+   LINKS - Elegant animated underline
    ========================================================================== */
 
 a {
   color: var(--global-link-color);
   text-decoration: none;
   border-bottom: none;
-  transition: color 0.25s ease-out;
+  transition: color 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
 
   &:hover {
     color: var(--global-link-color-hover);
   }
 }
 
-/* Content links — animated underline via background-image */
-.page__content a:not(.btn):not(.archive__item-title a) {
+.page__content a:not(.btn):not(.archive__item-title a):not(.hero__social a) {
   text-decoration: none;
   background-image: linear-gradient(var(--global-accent-color), var(--global-accent-color));
-  background-size: 100% 1px;
+  background-size: 0% 1px;
   background-position: 0 100%;
   background-repeat: no-repeat;
-  transition: background-size 0.25s ease-out, color 0.25s ease-out;
+  transition: background-size 0.4s cubic-bezier(0.25, 0.1, 0.25, 1), color 0.3s ease;
 
   &:hover {
-    background-size: 100% 2px;
+    background-size: 100% 1px;
     color: var(--global-link-color-hover);
   }
 }
 
 /* ==========================================================================
-   SELECTIVE SHADOW REMOVAL (replaces global * box-shadow: none)
+   SHADOW REMOVAL
    ========================================================================== */
 
 .toc,
@@ -158,56 +156,446 @@ a {
 }
 
 /* ==========================================================================
-   NAVIGATION — Frosted glass
+   HERO SECTION
    ========================================================================== */
 
-.masthead {
-  border-bottom: 1px solid var(--global-border-color);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  background: rgba(255, 255, 255, 0.85);
+.hero {
+  position: relative;
+  background: var(--global-hero-bg);
+  color: var(--global-hero-text);
+  overflow: hidden;
+  margin-top: -2em;
+  padding-top: 0;
 
-  html[data-theme="dark"] & {
-    background: rgba(10, 10, 10, 0.85);
+  &__inner {
+    position: relative;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 5rem 2rem 6rem;
+
+    @media (max-width: 768px) {
+      padding: 3.5rem 1.5rem 4.5rem;
+    }
   }
 
-  &__inner-wrap {
-    padding: 0.65rem 1.5rem;
+  &__content {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      text-align: center;
+      gap: 1.5rem;
+    }
+  }
+
+  &__avatar-wrap {
+    flex-shrink: 0;
+  }
+
+  &__avatar {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.3);
+    transition: transform 0.4s cubic-bezier(0.25, 0.1, 0.25, 1), box-shadow 0.4s ease;
+
+    &:hover {
+      transform: scale(1.05);
+      box-shadow: 0 12px 50px rgba(0, 0, 0, 0.4);
+    }
+
+    @media (max-width: 768px) {
+      width: 130px;
+      height: 130px;
+    }
+  }
+
+  &__text {
+    flex: 1;
+  }
+
+  &__name {
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: 2.8rem;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    margin: 0 0 0.5rem;
+    color: inherit;
+
+    @media (max-width: 768px) {
+      font-size: 2rem;
+    }
+  }
+
+  &__bio {
+    font-size: 1.15rem;
+    font-weight: 300;
+    opacity: 0.9;
+    margin: 0 0 0.5rem;
+    letter-spacing: 0.01em;
+  }
+
+  &__affiliation,
+  &__location {
+    font-size: 0.9rem;
+    opacity: 0.7;
+    margin: 0.2rem 0;
+
+    i {
+      width: 1.2em;
+      text-align: center;
+      margin-right: 0.4em;
+      font-size: 0.85em;
+    }
+  }
+
+  &__social {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.25rem;
+
+    @media (max-width: 768px) {
+      justify-content: center;
+    }
+
+    a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      color: rgba(255, 255, 255, 0.85);
+      font-size: 1rem;
+      transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.2);
+        color: #fff;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      }
+    }
+  }
+
+  &__decoration {
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+  }
+
+  &__wave {
+    width: 100%;
+    height: 60px;
+
+    @media (max-width: 768px) {
+      height: 40px;
+    }
   }
 }
 
-.site-title {
-  font-family: "Source Serif 4", Georgia, serif;
-  font-size: 0.95rem;
+/* Animated gradient on hero */
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    var(--global-gradient-start) 0%,
+    var(--global-gradient-end) 50%,
+    var(--global-gradient-start) 100%
+  );
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+  z-index: 0;
+}
+
+.hero__inner {
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ==========================================================================
+   HOME CONTENT SECTIONS
+   ========================================================================== */
+
+.home-content {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 2rem 4rem;
+
+  @media (max-width: 768px) {
+    padding: 1.5rem 1.25rem 3rem;
+  }
+}
+
+.home-section {
+  margin-bottom: 3.5rem;
+}
+
+.section-header {
+  margin-bottom: 1.5rem;
+
+  h2 {
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin: 0 0 0.5rem;
+    padding: 0;
+    border: none;
+    letter-spacing: -0.02em;
+  }
+}
+
+.section-line {
+  width: 50px;
+  height: 2px;
+  background: var(--global-accent-color);
+  border-radius: 1px;
+}
+
+.section-body {
+  p {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--global-text-color);
+  }
+}
+
+/* Interest cards grid */
+.interest-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+
+  @media (max-width: 600px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.interest-card {
+  background: var(--global-card-bg);
+  border: 1px solid var(--global-border-color);
+  border-radius: 8px;
+  padding: 1.5rem;
+  transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+  box-shadow: var(--global-card-shadow);
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--global-card-shadow-hover);
+    border-color: var(--global-accent-color);
+  }
+
+  h3 {
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0.75rem 0 0.35rem;
+    letter-spacing: -0.01em;
+  }
+
+  p {
+    font-size: 0.9rem !important;
+    color: var(--global-text-color-light);
+    margin: 0;
+    line-height: 1.5;
+  }
+}
+
+.interest-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, var(--global-gradient-start), var(--global-gradient-end));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 1.1rem;
+}
+
+/* Styled list */
+.styled-list {
+  list-style: none;
+  padding: 0;
+
+  li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.75rem;
+    font-size: 1.02rem;
+    line-height: 1.7;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.65em;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--global-accent-color);
+    }
+  }
+}
+
+/* Education timeline */
+.education-list {
+  position: relative;
+  padding-left: 1.5rem;
+  border-left: 2px solid var(--global-border-color);
+}
+
+.education-item {
+  position: relative;
+  padding-bottom: 1.75rem;
+
+  &:last-child {
+    padding-bottom: 0;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: -1.75rem;
+    top: 0.35rem;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--global-accent-color);
+    border: 2px solid var(--global-bg-color);
+  }
+}
+
+.education-degree {
+  font-family: "Playfair Display", Georgia, serif;
   font-weight: 600;
-  letter-spacing: -0.01em;
+  font-size: 1.05rem;
+  color: var(--global-text-color);
+  margin-bottom: 0.15rem;
+}
+
+.education-school {
+  font-size: 0.92rem;
+  color: var(--global-text-color-light);
+}
+
+.education-year {
+  font-size: 0.82rem;
+  color: var(--global-accent-color);
+  font-weight: 500;
+  margin-top: 0.15rem;
+}
+
+/* ==========================================================================
+   SCROLL FADE-IN ANIMATIONS
+   ========================================================================== */
+
+.fade-in-section {
+  opacity: 0;
+  transform: translateY(25px);
+  transition: opacity 0.7s cubic-bezier(0.25, 0.1, 0.25, 1), transform 0.7s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.fade-in-section.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ==========================================================================
+   MASTHEAD - Transparent to solid on scroll
+   ========================================================================== */
+
+.masthead {
+  border-bottom: 1px solid transparent;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  background: rgba(250, 248, 245, 0.9);
+  transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+html[data-theme="dark"] .masthead {
+  background: rgba(10, 15, 26, 0.92);
+}
+
+.masthead.scrolled {
+  border-bottom-color: var(--global-border-color);
+  box-shadow: 0 1px 15px rgba(0, 0, 0, 0.06);
+}
+
+.masthead__inner-wrap {
+  padding: 0.65rem 1.5rem;
+}
+
+.masthead__menu-item--lg a {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 1.05rem !important;
+  font-weight: 600;
+  letter-spacing: -0.02em;
 }
 
 .greedy-nav {
   a {
-    font-size: 0.82rem;
+    font-size: 0.85rem;
     font-weight: 400;
+    letter-spacing: 0.01em;
   }
 
   .visible-links a {
-    padding: 0.5rem 0.7rem;
+    padding: 0.5rem 0.75rem;
+  }
+
+  .visible-links a:before {
+    height: 2px;
+    background: var(--global-accent-color);
   }
 }
 
+.masthead__menu-item.selected a {
+  color: var(--global-accent-color);
+  font-weight: 600;
+  border-bottom: 2px solid var(--global-accent-color);
+}
+
+.masthead__menu-item.selected a:hover {
+  color: var(--global-accent-color);
+  border-bottom: 2px solid var(--global-accent-color);
+}
+
 /* ==========================================================================
-   SIDEBAR — Author profile
+   SIDEBAR - Author profile (subpages)
    ========================================================================== */
 
 .sidebar {
   p, li {
-    font-size: 0.8rem;
-    line-height: 1.35;
+    font-size: 0.82rem;
+    line-height: 1.45;
   }
 }
 
 .author__name {
-  font-family: "Source Serif 4", Georgia, serif;
-  font-size: 1.1rem;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 1.15rem;
   font-weight: 600;
   letter-spacing: -0.01em;
   margin-bottom: 0.15rem;
@@ -215,27 +603,27 @@ a {
 
 .author__bio {
   font-style: italic;
-  font-size: 0.82rem;
+  font-size: 0.85rem;
   color: var(--global-text-color-light);
-  line-height: 1.35;
+  line-height: 1.4;
 }
 
 .author__avatar img {
   border: 2px solid var(--global-border-color);
   border-radius: 50%;
-  transition: transform 0.25s ease-out, box-shadow 0.25s ease-out;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 
   &:hover {
     transform: scale(1.03);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   }
 }
 
 .author__urls {
   li a {
-    font-size: 0.75rem;
+    font-size: 0.78rem;
     padding: 0.25rem 0;
-    transition: color 0.25s ease-out;
+    transition: color 0.3s ease;
 
     &:hover {
       color: var(--global-accent-color);
@@ -248,10 +636,12 @@ a {
    ========================================================================== */
 
 .page__title {
-  font-family: "Source Serif 4", Georgia, serif;
-  font-size: 1.6rem;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 1.8rem;
   font-weight: 700;
+  letter-spacing: -0.03em;
   margin-bottom: 0.75rem;
+  line-height: 1.2;
 }
 
 /* ==========================================================================
@@ -259,14 +649,15 @@ a {
    ========================================================================== */
 
 .archive__item-title {
-  font-size: 0.9rem;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 0.95rem;
   font-weight: 500;
   margin-bottom: 0.2rem;
 
   a {
     border-bottom: none;
     background-image: none;
-    transition: color 0.25s ease-out;
+    transition: color 0.3s ease;
 
     &:hover {
       color: var(--global-accent-color);
@@ -275,9 +666,9 @@ a {
 }
 
 .archive__item-excerpt {
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   color: var(--global-text-color-light);
-  line-height: 1.35;
+  line-height: 1.45;
 }
 
 /* ==========================================================================
@@ -285,49 +676,54 @@ a {
    ========================================================================== */
 
 .list__item {
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
   padding: 1.25rem 0;
   border-bottom: 1px solid var(--global-border-color);
+  transition: all 0.3s ease;
 
   &:last-child {
     border-bottom: none;
   }
+
+  &:hover {
+    padding-left: 0.5rem;
+  }
 }
 
 .pub-number {
-  font-family: "Source Serif 4", Georgia, serif;
-  font-weight: 500;
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight: 600;
   color: var(--global-accent-color);
   margin-right: 0.5em;
   font-size: 0.9em;
-  opacity: 0.7;
+  opacity: 0.8;
 }
 
 /* ==========================================================================
-   PROJECT CARDS — Full color, hover lift
+   PROJECT CARDS
    ========================================================================== */
 
 .archive__item-teaser img,
 .archive__item-excerpt img {
   width: 100%;
-  height: 180px;
+  height: 200px;
   object-fit: cover;
   margin-top: 0.5rem;
   filter: none;
-  border-radius: 3px;
-  transition: transform 0.25s ease-out, box-shadow 0.25s ease-out;
+  border-radius: 6px;
+  transition: transform 0.4s cubic-bezier(0.25, 0.1, 0.25, 1), box-shadow 0.3s ease;
 
   &:hover {
     transform: scale(1.02);
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+    box-shadow: var(--global-card-shadow-hover);
   }
 }
 
-/* Project page featured image */
 .page__content > p:first-of-type img {
   width: 100%;
-  max-height: 300px;
+  max-height: 350px;
   object-fit: cover;
+  border-radius: 6px;
   margin-bottom: 0.5rem;
 }
 
@@ -339,18 +735,19 @@ a {
 }
 
 /* ==========================================================================
-   BUTTONS — Keep invert style, refine
+   BUTTONS
    ========================================================================== */
 
 .btn {
-  font-size: 0.75rem;
+  font-size: 0.78rem;
   font-weight: 500;
-  padding: 0.4rem 0.8rem;
-  border-radius: 3px;
+  padding: 0.45rem 0.9rem;
+  border-radius: 4px;
   border: 1px solid var(--global-text-color);
   background: transparent;
   color: var(--global-text-color);
-  transition: all 0.25s ease-out;
+  transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+  letter-spacing: 0.02em;
 
   &:hover {
     background: var(--global-text-color);
@@ -359,20 +756,21 @@ a {
 }
 
 /* ==========================================================================
-   BLOCKQUOTES — Accent border + serif italic
+   BLOCKQUOTES
    ========================================================================== */
 
 blockquote {
   border-left: 3px solid var(--global-accent-color);
-  padding-left: 1.5rem;
-  font-family: "Source Serif 4", Georgia, serif;
+  padding-left: 1.75rem;
+  font-family: "Playfair Display", Georgia, serif;
   font-style: italic;
   color: var(--global-text-color-light);
-  font-size: 1.05rem;
+  font-size: 1.08rem;
+  line-height: 1.7;
 }
 
 /* ==========================================================================
-   TABLES — Refined
+   TABLES
    ========================================================================== */
 
 table {
@@ -398,29 +796,30 @@ table {
 }
 
 /* ==========================================================================
-   CODE BLOCKS — Subtle refinement
+   CODE BLOCKS
    ========================================================================== */
 
 pre, code {
-  font-size: 0.78rem;
-  border-radius: 3px;
+  font-size: 0.8rem;
+  border-radius: 4px;
 }
 
 /* ==========================================================================
-   FOOTER — Tagline + refinement
+   FOOTER
    ========================================================================== */
 
 .page__footer {
-  border-top: 1px solid var(--global-border-color);
-  font-size: 0.72rem;
-  padding: 2rem 0;
+  border-top: none;
+  font-size: 0.75rem;
+  padding: 0;
+  position: relative;
 
   footer {
     max-width: none;
   }
 
   a {
-    transition: color 0.25s ease-out;
+    transition: color 0.3s ease;
 
     &:hover {
       color: var(--global-accent-color);
@@ -430,7 +829,9 @@ pre, code {
 
 .page__footer-tagline {
   margin-bottom: 0.75rem;
-  font-size: 0.82rem;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 0.95rem;
+  font-style: italic;
   color: var(--global-text-color-light);
 }
 
@@ -440,7 +841,7 @@ pre, code {
 
 .cv-json {
   h2 {
-    font-size: 1rem;
+    font-size: 1.05rem;
     text-transform: uppercase;
     letter-spacing: 0.05em;
     font-weight: 500;
@@ -453,7 +854,7 @@ pre, code {
 
 .social-icons {
   .fa, .fab, .fas, .svg-inline--fa {
-    font-size: 0.85rem;
+    font-size: 0.88rem;
   }
 }
 
@@ -462,14 +863,14 @@ pre, code {
    ========================================================================== */
 
 .page__meta {
-  font-size: 0.7rem;
+  font-size: 0.72rem;
   color: var(--global-text-color-light);
   text-transform: uppercase;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.04em;
 }
 
 /* ==========================================================================
-   SCROLLBAR — Custom thin + subtle
+   SCROLLBAR
    ========================================================================== */
 
 ::-webkit-scrollbar {
@@ -482,11 +883,74 @@ pre, code {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(128, 128, 128, 0.3);
+  background: rgba(128, 128, 128, 0.25);
   border-radius: 3px;
 
   &:hover {
-    background: rgba(128, 128, 128, 0.5);
+    background: rgba(128, 128, 128, 0.45);
+  }
+}
+
+/* ==========================================================================
+   FOOTER WAVE DIVIDER
+   ========================================================================== */
+
+.footer-wave {
+  width: 100%;
+  height: 60px;
+  display: block;
+  margin-bottom: -1px;
+
+  @media (max-width: 768px) {
+    height: 40px;
+  }
+}
+
+.page__footer-inner {
+  padding: 2.5rem 2rem 2rem;
+  text-align: center;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--global-code-background-color);
+    color: var(--global-text-color-light);
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    border: 1px solid var(--global-border-color);
+
+    &:hover {
+      color: var(--global-accent-color);
+      border-color: var(--global-accent-color);
+      transform: translateY(-2px);
+    }
+  }
+}
+
+.footer-copy {
+  font-size: 0.72rem;
+  color: var(--global-text-color-light);
+  line-height: 1.6;
+
+  a {
+    color: var(--global-text-color-light);
+    border-bottom: 1px solid transparent;
+
+    &:hover {
+      color: var(--global-accent-color);
+    }
   }
 }
 
@@ -496,19 +960,19 @@ pre, code {
 
 @media (max-width: 600px) {
   h1 {
-    font-size: 1.4rem;
+    font-size: 1.5rem;
   }
 
   h2 {
-    font-size: 1.15rem;
+    font-size: 1.2rem;
   }
 
   h3 {
-    font-size: 1rem;
+    font-size: 1.05rem;
   }
 
   .page__title {
-    font-size: 1.35rem;
+    font-size: 1.5rem;
   }
 
   .greedy-nav .visible-links a {
@@ -518,10 +982,48 @@ pre, code {
   .author__urls li a {
     padding: 0.5rem 0;
   }
+
+  .section-header h2 {
+    font-size: 1.35rem;
+  }
 }
 
 @media (min-width: 601px) and (max-width: 1023px) {
   .page__content p {
     max-width: 65ch;
   }
+}
+
+/* ==========================================================================
+   ARCHIVE PAGE - Enhanced
+   ========================================================================== */
+
+.archive__subtitle {
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight: 500;
+  color: var(--global-text-color);
+  font-size: 1.2rem;
+  border-bottom: 1px solid var(--global-border-color);
+  padding-bottom: 0.5rem;
+}
+
+/* ==========================================================================
+   #MAIN CONTAINER ADJUSTMENT FOR HOME
+   ========================================================================== */
+
+#main.home-content {
+  margin-top: 0 !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  max-width: 100% !important;
+  float: none !important;
+  width: 100% !important;
+}
+
+#main.home-content .home-section {
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 2rem;
+  padding-right: 2rem;
 }

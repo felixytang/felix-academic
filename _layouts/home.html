@@ -1,0 +1,136 @@
+---
+layout: default
+---
+
+{% include base_path %}
+
+{% if page.author and site.data.authors[page.author] %}
+  {% assign author = site.data.authors[page.author] %}
+{% else %}
+  {% assign author = site.author %}
+{% endif %}
+
+<!-- Hero Section -->
+<section class="hero">
+  <div class="hero__inner">
+    <div class="hero__content">
+      <div class="hero__avatar-wrap">
+        {% if author.avatar contains "://" %}
+          <img src="{{ author.avatar }}" alt="{{ author.name }}" class="hero__avatar" />
+        {% else %}
+          <img src="{{ author.avatar | prepend: "/images/" | prepend: base_path }}" alt="{{ author.name }}" class="hero__avatar" />
+        {% endif %}
+      </div>
+      <div class="hero__text">
+        <h1 class="hero__name">{{ author.name }}</h1>
+        {% if author.bio %}<p class="hero__bio">{{ author.bio }}</p>{% endif %}
+        {% if author.employer %}<p class="hero__affiliation"><i class="fas fa-building-columns"></i> {{ author.employer }}</p>{% endif %}
+        {% if author.location %}<p class="hero__location"><i class="fas fa-location-dot"></i> {{ author.location }}</p>{% endif %}
+        <div class="hero__social">
+          {% if author.email %}<a href="mailto:{{ author.email }}" title="Email"><i class="fas fa-envelope"></i></a>{% endif %}
+          {% if author.googlescholar %}<a href="{{ author.googlescholar }}" title="Google Scholar"><i class="ai ai-google-scholar"></i></a>{% endif %}
+          {% if author.researchgate %}<a href="{{ author.researchgate }}" title="ResearchGate"><i class="fab fa-researchgate"></i></a>{% endif %}
+          {% if author.github %}<a href="https://github.com/{{ author.github }}" title="GitHub"><i class="fab fa-github"></i></a>{% endif %}
+          {% if author.linkedin %}<a href="https://www.linkedin.com/in/{{ author.linkedin }}" title="LinkedIn"><i class="fab fa-linkedin"></i></a>{% endif %}
+          {% if author.orcid %}<a href="{{ author.orcid }}" title="ORCID"><i class="ai ai-orcid"></i></a>{% endif %}
+        </div>
+      </div>
+    </div>
+    <div class="hero__decoration">
+      <svg viewBox="0 0 1200 120" preserveAspectRatio="none" class="hero__wave">
+        <path d="M0,40 C150,100 350,0 500,50 C650,100 750,20 900,60 C1050,100 1150,30 1200,50 L1200,120 L0,120 Z" fill="var(--global-bg-color)"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- Main Content -->
+<div id="main" role="main" class="home-content">
+
+  <!-- About Section -->
+  <section class="home-section fade-in-section">
+    <div class="section-header">
+      <h2>About</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="section-body">
+      <p>I am a Postdoctoral Researcher in Physical Oceanography at <a href="https://www.ncsu.edu/">North Carolina State University</a>. My research focuses on multi-scale ocean dynamics, air-sea-ice interactions, and cross-shelf water exchange. I employ numerical ocean models (ROMS, FVCOM) combined with data assimilation techniques and ML/AI approaches to investigate ocean circulation and climate dynamics.</p>
+    </div>
+  </section>
+
+  <!-- Research Interests -->
+  <section class="home-section fade-in-section">
+    <div class="section-header">
+      <h2>Research Interests</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="section-body">
+      <div class="interest-grid">
+        <div class="interest-card">
+          <div class="interest-icon"><i class="fas fa-water"></i></div>
+          <h3>Ocean Dynamics</h3>
+          <p>Multi-scale physical oceanography and circulation</p>
+        </div>
+        <div class="interest-card">
+          <div class="interest-icon"><i class="fas fa-snowflake"></i></div>
+          <h3>Air-Sea-Ice</h3>
+          <p>Interactions and cross-shelf water exchange</p>
+        </div>
+        <div class="interest-card">
+          <div class="interest-icon"><i class="fas fa-computer"></i></div>
+          <h3>Numerical Modeling</h3>
+          <p>ROMS, FVCOM, and data assimilation</p>
+        </div>
+        <div class="interest-card">
+          <div class="interest-icon"><i class="fas fa-brain"></i></div>
+          <h3>ML/AI</h3>
+          <p>Machine learning for ocean science</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Current Research -->
+  <section class="home-section fade-in-section">
+    <div class="section-header">
+      <h2>Current Research</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="section-body">
+      <p>At NCSU, I am conducting advanced research with a focus on:</p>
+      <ul class="styled-list">
+        <li><strong>Data assimilation techniques</strong> to enhance ocean model accuracy</li>
+        <li><strong>Eddies in the Gulf of Mexico</strong> using numerical models and ML/AI</li>
+        <li><strong>Water mass transformation</strong> in the Caribbean Sea</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Education -->
+  <section class="home-section fade-in-section">
+    <div class="section-header">
+      <h2>Education</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="section-body">
+      <div class="education-list">
+        <div class="education-item">
+          <div class="education-degree">Ph.D. in Physical Oceanography</div>
+          <div class="education-school">Southern University of Science and Technology, China</div>
+          <div class="education-year">2019 &ndash; 2023</div>
+        </div>
+        <div class="education-item">
+          <div class="education-degree">M.Sc. in Marine Science</div>
+          <div class="education-school">Shanghai Ocean University, China</div>
+          <div class="education-year">2016 &ndash; 2019</div>
+        </div>
+        <div class="education-item">
+          <div class="education-degree">B.Sc. in Resources, Environment, and Urban-Rural Planning Management</div>
+          <div class="education-school">Guangdong University of Finance and Economics, China</div>
+          <div class="education-year">2012 &ndash; 2016</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
