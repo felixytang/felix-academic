@@ -1,7 +1,7 @@
 # Site settings
 
 locale                   : "en-US"
-title                    : "Yongfei (Felix) Deng"
+title                    : "Felix Deng"
 title_separator          : "-"
 name                     : &name "Yongfei (Felix) Deng"
 description              : &description "Postdoctoral Researcher in Physical Oceanography at North Carolina State University"
