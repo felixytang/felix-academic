@@ -1,6 +1,6 @@
 # Academic Website Customization Guide
 
-**Live Site:** https://felixytang.github.io/academic-website/
+**Live Site:** https://felixytang.github.io/felix-academic/
 
 This site is a hand-built Jekyll clone of the visual style of [lesommer.github.io](https://lesommer.github.io) (Jekyll's stock "minima" theme): plain Helvetica typography, off-white background, blue links, no cards/shadows/dark-mode, four pages only.
 
@@ -21,7 +21,7 @@ This site is a hand-built Jekyll clone of the visual style of [lesommer.github.i
 ## Quick Start
 
 ### Make a Quick Edit
-1. Edit files in your local `academic-website` folder
+1. Edit files in your local `felix-academic` folder
 2. Run these commands:
    ```bash
    git add -A
@@ -35,7 +35,7 @@ This site is a hand-built Jekyll clone of the visual style of [lesommer.github.i
 ## File Structure
 
 ```
-academic-website/
+felix-academic/
 ├── _config.yml          # Main site configuration (author info, publication categories)
 ├── _data/
 │   └── navigation.yml   # Navigation menu items (About / Contact / Projects / Publications)
@@ -124,7 +124,7 @@ Project description...
 2. Citation 2
 ```
 
-Each portfolio entry gets its own page (unlike publications) since these are fuller write-ups, not one-line citations. Always use the `{{ "..." | relative_url }}` filter for image paths rather than hardcoding `/academic-website/...` — it keeps links correct if the `baseurl` in `_config.yml` ever changes.
+Each portfolio entry gets its own page (unlike publications) since these are fuller write-ups, not one-line citations. Always use the `{{ "..." | relative_url }}` filter for image paths rather than hardcoding `/felix-academic/...` — it keeps links correct if the `baseurl` in `_config.yml` ever changes.
 
 ### Add project images
 Place images in `images/projects/` and reference them with the `relative_url` filter as shown above.
@@ -191,7 +191,7 @@ Add custom styles after the `@import` lines at the top of this file.
 brew install ruby
 
 # Install dependencies
-cd academic-website
+cd felix-academic
 bundle install
 ```
 
@@ -199,7 +199,7 @@ bundle install
 ```bash
 bundle exec jekyll serve -l -H localhost
 ```
-Open: http://localhost:4000/academic-website/
+Open: http://localhost:4000/felix-academic/
 
 ### Stop server
 Press `Ctrl+C`
@@ -218,7 +218,7 @@ git push origin master:main
 
 ### Check deployment status
 ```bash
-gh run list --repo felixytang/academic-website --limit 1
+gh run list --repo felixytang/felix-academic --limit 1
 ```
 
 ---
@@ -246,7 +246,7 @@ description: "Your description"
 
 ### Site not updating?
 - Wait 2-3 minutes for GitHub Actions to complete
-- Check: https://github.com/felixytang/academic-website/actions
+- Check: https://github.com/felixytang/felix-academic/actions
 
 ### Images not showing?
 - Use `{{ "/images/..." | relative_url }}` rather than a hardcoded path

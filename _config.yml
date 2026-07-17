@@ -6,8 +6,8 @@ title_separator          : "-"
 name                     : &name "Yongfei (Felix) Deng"
 description              : &description "Postdoctoral Researcher in Physical Oceanography at North Carolina State University"
 url                      : https://felixytang.github.io # The base hostname & protocol for your site
-baseurl                  : "/academic-website" # the subpath of your site
-repository               : "felixytang/academic-website"
+baseurl                  : "/felix-academic" # the subpath of your site
+repository               : "felixytang/felix-academic"
 
 # Site Author
 author:
