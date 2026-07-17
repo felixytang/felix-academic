@@ -1,10 +1,10 @@
 ---
 title: "South China Sea Shelf Circulation"
-excerpt: "Understanding the interannual variability and driving mechanisms of shelf circulation and cross-shelf water exchange in the Northern South China Sea.<br/><img src='/academic-website/images/projects/ocean-waves.jpg'>"
+excerpt: "Understanding the interannual variability and driving mechanisms of shelf circulation and cross-shelf water exchange in the Northern South China Sea."
 collection: portfolio
 ---
 
-![South China Sea Research](/academic-website/images/projects/ocean-waves.jpg)
+![South China Sea Research]({{ "/images/projects/ocean-waves.jpg" | relative_url }})
 *Photo: Unsplash (placeholder - replace with your own research figures)*
 
 ## Overview

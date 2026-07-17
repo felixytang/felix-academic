@@ -1,10 +1,10 @@
 ---
 title: "Arctic Ocean & Bering Strait Dynamics"
-excerpt: "Investigating the variability and impacts of Bering Strait throughflow on Arctic Ocean circulation and sea ice dynamics.<br/><img src='/academic-website/images/projects/arctic-ocean.jpg'>"
+excerpt: "Investigating the variability and impacts of Bering Strait throughflow on Arctic Ocean circulation and sea ice dynamics."
 collection: portfolio
 ---
 
-![Arctic Ocean Research](/academic-website/images/projects/arctic-ocean.jpg)
+![Arctic Ocean Research]({{ "/images/projects/arctic-ocean.jpg" | relative_url }})
 *Photo: Unsplash (placeholder - replace with your own research figures)*
 
 ## Overview

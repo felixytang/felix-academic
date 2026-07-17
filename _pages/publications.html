@@ -1,62 +1,18 @@
 ---
-layout: archive
 title: "Publications"
 permalink: /publications/
-author_profile: true
 ---
 
-{% if site.author.googlescholar %}
-  <div class="wordwrap">You can also find my articles on <a href="{{site.author.googlescholar}}">my Google Scholar profile</a>.</div>
-{% endif %}
+<p>For publication metrics, see my <a href="{{ site.author.googlescholar }}">Google Scholar profile</a>.</p>
 
-{% include base_path %}
-
-<!-- Numbered publications list -->
-{% assign pub_count = site.publications | size %}
-
-{% if site.publication_category %}
-  {% for category in site.publication_category %}
-    {% assign title_shown = false %}
-    {% assign cat_pubs = site.publications | where: "category", category[0] | sort: "date" | reverse %}
-    {% for post in cat_pubs %}
-      {% unless title_shown %}
-        <h2>{{ category[1].title }}</h2><hr />
-        {% assign title_shown = true %}
-      {% endunless %}
-      <div class="list__item">
-        <article class="archive__item">
-          <h2 class="archive__item-title">
-            <span class="pub-number">[{{ pub_count }}]</span>
-            <a href="{{ base_path }}{{ post.url }}" rel="permalink">{{ post.title }}</a>
-          </h2>
-          {% if post.venue and post.date %}
-            <p class="archive__item-excerpt"><i>{{ post.venue }}</i>, {{ post.date | date: "%Y" }}</p>
-          {% endif %}
-          {% if post.excerpt %}
-            <p class="archive__item-excerpt">{{ post.excerpt | markdownify | remove: '<p>' | remove: '</p>' }}</p>
-          {% endif %}
-        </article>
-      </div>
-      {% assign pub_count = pub_count | minus: 1 %}
+{% for category in site.publication_category %}
+  {% assign cat_pubs = site.publications | where: "category", category[0] | sort: "date" | reverse %}
+  {% if cat_pubs.size > 0 %}
+    <h2>{{ category[1].title }}</h2>
+    <ol>
+    {% for pub in cat_pubs %}
+      <li>{{ pub.citation | markdownify | remove: '<p>' | remove: '</p>' }}{% if pub.paperurl and pub.paperurl != "" %} <a href="{{ pub.paperurl }}">[pdf]</a>{% endif %}</li>
     {% endfor %}
-  {% endfor %}
-{% else %}
-  {% assign sorted_pubs = site.publications | sort: "date" | reverse %}
-  {% for post in sorted_pubs %}
-    <div class="list__item">
-      <article class="archive__item">
-        <h2 class="archive__item-title">
-          <span class="pub-number">[{{ pub_count }}]</span>
-          <a href="{{ base_path }}{{ post.url }}" rel="permalink">{{ post.title }}</a>
-        </h2>
-        {% if post.venue and post.date %}
-          <p class="archive__item-excerpt"><i>{{ post.venue }}</i>, {{ post.date | date: "%Y" }}</p>
-        {% endif %}
-        {% if post.excerpt %}
-          <p class="archive__item-excerpt">{{ post.excerpt | markdownify | remove: '<p>' | remove: '</p>' }}</p>
-        {% endif %}
-      </article>
-    </div>
-    {% assign pub_count = pub_count | minus: 1 %}
-  {% endfor %}
-{% endif %}
+    </ol>
+  {% endif %}
+{% endfor %}

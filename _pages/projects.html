@@ -1,12 +1,13 @@
 ---
-layout: archive
 title: "Research Projects"
 permalink: /projects/
-author_profile: true
 ---
 
-{% include base_path %}
-
+<ul>
 {% for post in site.portfolio %}
-  {% include archive-single.html %}
+  <li>
+    <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+    {% if post.excerpt %} &mdash; {{ post.excerpt | strip_html }}{% endif %}
+  </li>
 {% endfor %}
+</ul>

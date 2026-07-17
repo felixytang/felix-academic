@@ -2,6 +2,8 @@
 
 **Live Site:** https://felixytang.github.io/academic-website/
 
+This site is a hand-built Jekyll clone of the visual style of [lesommer.github.io](https://lesommer.github.io) (Jekyll's stock "minima" theme): plain Helvetica typography, off-white background, blue links, no cards/shadows/dark-mode, four pages only.
+
 ---
 
 ## Table of Contents
@@ -9,11 +11,10 @@
 2. [File Structure](#file-structure)
 3. [Adding New Publications](#adding-new-publications)
 4. [Updating Projects](#updating-projects)
-5. [Adding Talks/Presentations](#adding-talkspresentations)
-6. [Updating Your Profile](#updating-your-profile)
-7. [Customizing Appearance](#customizing-appearance)
-8. [Local Development](#local-development)
-9. [Deployment](#deployment)
+5. [Updating Your Profile](#updating-your-profile)
+6. [Customizing Appearance](#customizing-appearance)
+7. [Local Development](#local-development)
+8. [Deployment](#deployment)
 
 ---
 
@@ -35,25 +36,28 @@
 
 ```
 academic-website/
-├── _config.yml          # Main site configuration
+├── _config.yml          # Main site configuration (author info, publication categories)
 ├── _data/
-│   ├── cv.json          # CV data (education, experience, skills)
-│   └── navigation.yml   # Navigation menu items
+│   └── navigation.yml   # Navigation menu items (About / Contact / Projects / Publications)
+├── index.md              # Homepage content (photo + short bio)
 ├── _pages/
-│   ├── about.md         # Homepage content
-│   ├── publications.html
-│   ├── projects.html
-│   └── cv.md
-├── _publications/       # Individual publication files
-├── _portfolio/          # Research project files
-├── _talks/              # Conference talks
-├── _teaching/           # Teaching experience
-├── images/              # Site images
-│   └── projects/        # Project images
-├── files/               # PDFs (CV, papers)
+│   ├── about.md          # About page (full bio, education, CV link)
+│   ├── contact.md        # Contact page (email, profile links)
+│   ├── publications.html # Publications listing logic (loops _publications/)
+│   └── projects.html     # Projects listing logic (loops _portfolio/)
+├── _publications/        # Individual publication files (data only, no standalone pages)
+├── _portfolio/           # Research project files (each gets its own page)
+├── images/               # Site images
+│   └── projects/         # Project images
+├── files/                 # PDFs (CV, papers)
 │   └── resume.pdf
-└── assets/css/main.scss # Custom styles
+├── _layouts/              # default.html (shell), home.html, page.html
+├── _includes/             # head.html, header.html, footer.html, social.html
+├── _sass/                 # _variables.scss, _base.scss, _layout.scss
+└── assets/css/main.scss   # Imports the _sass partials + small custom overrides
 ```
+
+Note: there are no Talks, Teaching, or CV pages — this was a deliberate simplification to match lesommer's 4-page structure. If you want to bring one back, add a page under `_pages/`, a nav entry in `_data/navigation.yml`, and (if it needs its own content type) a collection in `_config.yml`.
 
 ---
 
@@ -67,15 +71,17 @@ Create `_publications/YYYY-MM-DD-short-title.md`:
 title: "Your Paper Title"
 collection: publications
 category: manuscripts
-permalink: /publication/YYYY-short-title
 excerpt: 'Brief description of the paper.'
 date: YYYY-MM-DD
 venue: 'Journal Name'
 paperurl: 'https://doi.org/...'
 citation: 'Author1, Author2. (YYYY). "Title." <i>Journal</i>.'
 ---
-Optional longer description of the paper.
 ```
+
+The `citation` field is what actually renders on the Publications page (as a formatted list item) — keep it as one clean HTML/Markdown string. `paperurl` is optional; if set, a `[pdf]` link is added next to the citation. The publications collection does **not** generate individual pages (`output: false` in `_config.yml`), matching lesommer's plain citation-list style — so `permalink` isn't needed.
+
+If you introduce a new `category` value, add a matching entry under `publication_category` in `_config.yml` so it gets its own `<h2>` heading on the Publications page.
 
 ### Step 2: Commit and push
 ```bash
@@ -100,12 +106,11 @@ Create `_portfolio/project-4-newname.md`:
 ```markdown
 ---
 title: "Project Title"
-excerpt: "Short description.<br/><img src='/academic-website/images/projects/your-image.jpg'>"
+excerpt: "One-line description shown in the Projects list."
 collection: portfolio
 ---
 
-![Project Image](/academic-website/images/projects/your-image.jpg)
-*Caption for the image*
+![Project Image]({{ "/images/projects/your-image.jpg" | relative_url }})
 
 ## Overview
 Project description...
@@ -119,28 +124,10 @@ Project description...
 2. Citation 2
 ```
 
+Each portfolio entry gets its own page (unlike publications) since these are fuller write-ups, not one-line citations. Always use the `{{ "..." | relative_url }}` filter for image paths rather than hardcoding `/academic-website/...` — it keeps links correct if the `baseurl` in `_config.yml` ever changes.
+
 ### Add project images
-1. Place images in `images/projects/`
-2. Use path: `/academic-website/images/projects/filename.jpg`
-
----
-
-## Adding Talks/Presentations
-
-Create `_talks/YYYY-MM-DD-talk-title.md`:
-
-```markdown
----
-title: "Talk Title"
-collection: talks
-type: "Conference presentation"
-permalink: /talks/YYYY-talk-title
-venue: "Conference Name"
-date: YYYY-MM-DD
-location: "City, Country"
----
-Description of your talk.
-```
+Place images in `images/projects/` and reference them with the `relative_url` filter as shown above.
 
 ---
 
@@ -155,42 +142,44 @@ author:
   employer: "University"
   email: "your@email.edu"
   googlescholar: "https://scholar.google.com/..."
+  researchgate: "https://www.researchgate.net/..."
   github: "username"
   linkedin: "username"
 ```
 
-### Homepage (`_pages/about.md`)
-Edit the markdown content to update your bio and research description.
+### Homepage (`index.md`) and About page (`_pages/about.md`)
+Edit the markdown content directly — both are plain prose, the same way lesommer's site is authored (no data-driven templating for bio text).
 
-### CV Data (`_data/cv.json`)
-Update education, work experience, skills, publications, etc.
+### Contact page (`_pages/contact.md`)
+Plain markdown list — edit directly. Only include contact details you actually want public.
 
 ### Profile Photo
 Replace `images/profile.png` with your photo (keep the same filename).
+
+### CV PDF
+Replace `files/resume.pdf` — it's linked from the About page.
 
 ---
 
 ## Customizing Appearance
 
-### Colors (`_sass/theme/_contrast_light.scss`)
+### Colors (`_sass/_variables.scss`)
 ```scss
-$primary-color: #1a1a1a;    // Main accent color
-$text: #1a1a1a;             // Text color
-$text-muted: #666666;       // Secondary text
-$background: #ffffff;       // Background
-$border: #e5e5e5;           // Border color
+$text-color:          #111;
+$background-color:    #fdfdfd;
+$link-color:          #2a7ae2;
+$link-visited-color:  #1756a9;
+$grey-color:          #828282;
+$border-color:        #e8e8e8;
 ```
 
-### Font Size (`_sass/_themes.scss`)
+### Layout width (`_sass/_variables.scss`)
 ```scss
-$doc-font-size: 14;         // Base font size in px
-$type-size-1: 1.75em;       // h1
-$type-size-2: 1.5em;        // h2
-$type-size-3: 1.25em;       // h3
+$content-width: 800px;  // matches lesommer's centered column
 ```
 
 ### Custom CSS (`assets/css/main.scss`)
-Add custom styles at the bottom of this file.
+Add custom styles after the `@import` lines at the top of this file.
 
 ---
 
@@ -236,10 +225,6 @@ gh run list --repo felixytang/academic-website --limit 1
 
 ## Common Tasks
 
-### Update CV PDF
-1. Replace `files/resume.pdf` with your new CV
-2. Commit and push
-
 ### Add a new navigation item
 Edit `_data/navigation.yml`:
 ```yaml
@@ -247,9 +232,6 @@ main:
   - title: "New Page"
     url: /newpage/
 ```
-
-### Hide a section
-Remove or comment out the item in `_data/navigation.yml`
 
 ### Change site title
 Edit `_config.yml`:
@@ -267,8 +249,8 @@ description: "Your description"
 - Check: https://github.com/felixytang/academic-website/actions
 
 ### Images not showing?
-- Use full path: `/academic-website/images/...`
-- Check file exists in `images/` folder
+- Use `{{ "/images/..." | relative_url }}` rather than a hardcoded path
+- Check the file exists in `images/`
 
 ### Local server errors?
 ```bash
@@ -280,10 +262,11 @@ bundle exec jekyll serve
 
 ## Resources
 
-- [Academicpages Documentation](https://academicpages.github.io/)
+- [lesommer.github.io](https://lesommer.github.io) — the site this design is modeled on
+- [Jekyll's minima theme](https://github.com/jekyll/minima) — the upstream theme this site's `_sass`/`_layouts`/`_includes` reimplement by hand
 - [Jekyll Documentation](https://jekyllrb.com/docs/)
 - [Markdown Guide](https://www.markdownguide.org/)
 
 ---
 
-*Last updated: February 2026*
+*Last updated: 2026-07-17.*

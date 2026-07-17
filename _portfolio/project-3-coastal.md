@@ -1,10 +1,10 @@
 ---
 title: "Coastal & Estuarine Dynamics"
-excerpt: "Advancing understanding of coastal ocean processes through numerical modeling, data assimilation, and machine learning approaches.<br/><img src='/academic-website/images/projects/coastal-aerial.jpg'>"
+excerpt: "Advancing understanding of coastal ocean processes through numerical modeling, data assimilation, and machine learning approaches."
 collection: portfolio
 ---
 
-![Coastal Research](/academic-website/images/projects/coastal-aerial.jpg)
+![Coastal Research]({{ "/images/projects/coastal-aerial.jpg" | relative_url }})
 *Photo: Unsplash (placeholder - replace with your own research figures)*
 
 ## Overview

@@ -1,33 +1,46 @@
-{% include base_path %}
+<footer class="site-footer">
 
-{% if page.author and site.data.authors[page.author] %}
-  {% assign author = site.data.authors[page.author] %}
-{% else %}
-  {% assign author = site.author %}
-{% endif %}
+  <div class="wrapper">
 
-<!-- Wave divider -->
-<svg class="footer-wave" viewBox="0 0 1200 60" preserveAspectRatio="none">
-  <path d="M0,30 C200,60 400,0 600,30 C800,60 1000,10 1200,30 L1200,60 L0,60 Z" fill="var(--global-footer-bg-color)"/>
-</svg>
+    <div class="footer-col-wrapper">
 
-<div class="page__footer-inner">
-  <div class="page__footer-tagline">
-    <em>Exploring the ocean, one model at a time.</em>
+      <div class="footer-col">
+        <ul class="contact-list">
+          {% if site.author.email %}
+            <li>e-mail : <a href="mailto:{{ site.author.email }}">{{ site.author.email }}</a></li>
+          {% endif %}
+          {% if site.author.location %}
+            <li>{{ site.author.location }}</li>
+          {% endif %}
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <ul class="social-media-list">
+          {% if site.author.github %}
+            <li>
+              github : <a href="https://github.com/{{ site.author.github }}">{% include social.html %}<span class="username">{{ site.author.github }}</span></a>
+            </li>
+          {% endif %}
+          {% if site.author.linkedin %}
+            <li>linkedin : <a href="https://www.linkedin.com/in/{{ site.author.linkedin }}">{{ site.author.linkedin }}</a></li>
+          {% endif %}
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <ul class="social-media-list">
+          {% if site.author.googlescholar %}
+            <li>google scholar : <a href="{{ site.author.googlescholar }}">profile</a></li>
+          {% endif %}
+          {% if site.author.researchgate %}
+            <li>researchgate : <a href="{{ site.author.researchgate }}">profile</a></li>
+          {% endif %}
+        </ul>
+      </div>
+
+    </div>
+
   </div>
 
-  <div class="footer-links">
-    {% if author.email %}<a href="mailto:{{ author.email }}" title="Email"><i class="fas fa-envelope"></i></a>{% endif %}
-    {% if author.googlescholar %}<a href="{{ author.googlescholar }}" title="Google Scholar"><i class="ai ai-google-scholar"></i></a>{% endif %}
-    {% if author.github %}<a href="https://github.com/{{ author.github }}" title="GitHub"><i class="fab fa-github"></i></a>{% endif %}
-    {% if author.linkedin %}<a href="https://www.linkedin.com/in/{{ author.linkedin }}" title="LinkedIn"><i class="fab fa-linkedin"></i></a>{% endif %}
-    {% if author.researchgate %}<a href="{{ author.researchgate }}" title="ResearchGate"><i class="fab fa-researchgate"></i></a>{% endif %}
-    {% if site.atom_feed.hide != true %}
-      <a href="{% if site.atom_feed.path %}{{ site.atom_feed.path }}{% else %}{{ base_path }}/feed.xml{% endif %}" title="RSS Feed"><i class="fa fa-fw fa-rss-square"></i></a>
-    {% endif %}
-  </div>
-
-  <div class="footer-copy">
-    &copy; {{ site.time | date: '%Y' }} {{ site.name | default: site.title }}. {{ site.data.ui-text[site.locale].powered_by | default: "Powered by" }} <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://github.com/academicpages/academicpages.github.io">AcademicPages</a>.
-  </div>
-</div>
+</footer>
