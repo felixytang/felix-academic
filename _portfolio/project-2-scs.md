@@ -2,10 +2,11 @@
 title: "South China Sea Shelf Circulation"
 excerpt: "Understanding the interannual variability and driving mechanisms of shelf circulation and cross-shelf water exchange in the Northern South China Sea."
 collection: portfolio
+date: 2020-01-01
 ---
 
-![South China Sea Research]({{ "/images/projects/ocean-waves.jpg" | relative_url }})
-*Photo: Unsplash (placeholder - replace with your own research figures)*
+![South China Sea Research]({{ "/images/projects/scs-current.png" | relative_url }})
+*Image: Major currents over the South China Sea shelf and slope region*
 
 ## Overview
 

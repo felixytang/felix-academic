@@ -2,10 +2,11 @@
 title: "Arctic Ocean & Bering Strait Dynamics"
 excerpt: "Investigating the variability and impacts of Bering Strait throughflow on Arctic Ocean circulation and sea ice dynamics."
 collection: portfolio
+date: 2017-01-01
 ---
 
 ![Arctic Ocean Research]({{ "/images/projects/arctic-ocean.png" | relative_url }})
-*Photo: Unsplash (placeholder - replace with your own research figures)*
+*Image: The major current and circulation in the Bering Strait and its adjacent ocean*
 
 ## Overview
 
