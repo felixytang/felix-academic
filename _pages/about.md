@@ -6,7 +6,7 @@ permalink: /about/
 
 I am a **Research Scientist in Physical Oceanography** at at the [Ocean Observing and Modeling Group (OOMG)](https://oomg.us) at [North Carolina State University](https://www.ncsu.edu/) in Raleigh, NC. My research focuses on **regional-coastal-estuarine ocean dynamics**, **air-sea-ice interactions**, and **hybrid ocean forecasting**, using numerical ocean models (**ROMS**, **FVCOM**) combined with data assimilation and **machine learning** approaches.
 
-At NCSU I study **loop current (eddies) in the Gulf of Mexico** and **water mass transformation in the Caribbean Sea**, using numerical models and ML/AI alongside data assimilation techniques to improve ocean model accuracy.
+At NCSU I work on **loop current (eddies) in the Gulf of Mexico** and **water mass transformation in the Caribbean Sea**, using numerical models and ML/AI alongside data assimilation techniques to improve ocean model accuracy.
 
 Before NCSU, I was a visiting and postdoctoral researcher at the **University of New South Wales** (2022&ndash;2024), where I studied sediment and physical dynamics in Batemans Bay, NSW, including estuarine circulation, bay-shelf exchange, and the impacts of regional climate change on sediment transport and hydrodynamics. I also taught and field-instructed for several UNSW Canberra courses (Ocean Circulation and Mixing, Australian Waters, Ocean Field School, and an Introduction to Oceanography) and helped organize two Ocean Field School.
 
