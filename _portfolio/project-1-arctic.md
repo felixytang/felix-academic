@@ -4,7 +4,7 @@ excerpt: "Investigating the variability and impacts of Bering Strait throughflow
 collection: portfolio
 ---
 
-![Arctic Ocean Research]({{ "/images/projects/arctic-ocean.jpg" | relative_url }})
+![Arctic Ocean Research]({{ "/images/projects/arctic-ocean.png" | relative_url }})
 *Photo: Unsplash (placeholder - replace with your own research figures)*
 
 ## Overview
