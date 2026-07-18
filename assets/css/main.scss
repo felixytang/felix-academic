@@ -16,6 +16,8 @@
 .avatar-right {
   float: right;
   width: 200px;
+  height: 200px;
+  object-fit: cover;
   border-radius: 50%;
   margin: 0 0 15px 15px;
 }
@@ -23,6 +25,8 @@
 .avatar-left {
   float: left;
   width: 200px;
+  height: 200px;
+  object-fit: cover;
   border-radius: 50%;
   margin: 0 15px 15px 0;
 }
