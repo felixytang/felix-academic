@@ -13,4 +13,4 @@ permalink: /contact/
 * [Google Scholar](https://scholar.google.com/citations?user=MQitERsAAAAJ&hl=en)
 * [ResearchGate](https://www.researchgate.net/profile/Yongfei-Deng)
 * [GitHub](https://github.com/felixytang)
-* [LinkedIn](https://www.linkedin.com/in/felix-deng)
+* [LinkedIn](https://www.linkedin.com/in/felix-deng-04880327b)
