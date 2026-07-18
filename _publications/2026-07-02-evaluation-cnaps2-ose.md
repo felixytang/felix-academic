@@ -1,7 +1,7 @@
 ---
 title: "An Operational Data-assimilative CNAPS2: Part 1 Evaluation of Loop Current Velocity and Dynamics in the Gulf of Mexico"
 collection: publications
-category: Papers in Preparation
+category: preparation
 excerpt: ''
 date: 2026-07-02
 venue: 'in preparation'

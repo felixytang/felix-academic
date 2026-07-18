@@ -5,7 +5,9 @@ collection: portfolio
 date: 2024-01-01
 ---
 
-![Ocean Waves]({{ "/images/projects/ocean-waves.jpg" | relative_url }})
+![Ocean Waves]({{ "/images/projects/cnaps2-loop-current.png" | relative_url }})
+*Image: loop current shedding event captured by CNAPS2 DA assimilated with various observations*
+
 
 ## Overview
 
@@ -23,6 +25,6 @@ This ongoing research at North Carolina State University (NCSU) combines numeric
 
 ## Methods
 
-- **Numerical Modeling**: ROMS, FVCOM
-- **Data Assimilation**: ENKF-c
+- **Numerical Modeling**: ROMS
+- **Data Assimilation**: EnOI
 - **Machine Learning**: AI/ML/DL approaches for ocean prediction
